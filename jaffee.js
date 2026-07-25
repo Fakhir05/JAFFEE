@@ -570,7 +570,7 @@ checkoutBtn.addEventListener("click",(e)=>{
 });
 
 
-// checkout system closer
+// checkout system closer 
 
 
 closeCheckout.addEventListener("click",(e)=>{
