@@ -31,9 +31,15 @@ const creditCardInfo = document.getElementById("credit-card-info");
 const codInfo = document.getElementById("cod-info");
 const checkoutForm = document.getElementById("checkout-form");
 
+
+// cart tab open and close 
+
+
 cartIcon.addEventListener('click', () => cartTab.classList.add('cart-active'));
 closeBtn.addEventListener('click', () => cartTab.classList.remove('cart-active'));
 
+
+// prducts list 
 
 
 const products = [
@@ -82,6 +88,9 @@ const products = [
 ];
 
 
+// add menu in html 
+
+
 products.forEach(section => {
 
     menuContainer.innerHTML += `
@@ -117,6 +126,10 @@ products.forEach(section => {
         <br>
     `;
 });
+
+
+// add items in cart 
+
 
 let cart = [];
 
@@ -203,6 +216,10 @@ function renderCart() {
 
 }
 
+
+// plus and minus
+
+
 document.addEventListener("click", (e) => {
 
     if (e.target.closest(".plus")) {
@@ -235,6 +252,10 @@ document.addEventListener("click", (e) => {
 
 });
 
+
+// mobile menu hamburger active and deactive
+
+
 hamburger.addEventListener("click", (e) => {
     e.preventDefault();
 
@@ -259,6 +280,7 @@ document.querySelectorAll(".mobile-menu a").forEach(link => {
 });
 
 
+// smooth scrolling
 
 
 orderBtn.addEventListener("click", (e) => {
@@ -269,6 +291,8 @@ orderBtn.addEventListener("click", (e) => {
     });
 });
 
+
+// login & register open & close
 
 
 function openPopup(){
@@ -284,6 +308,10 @@ function closePopup(){
     document.body.style.overflow = "";
 
 }
+
+
+// sign in to login & register 
+
 
 openLoginBtns.forEach(btn=>{
 
@@ -312,6 +340,8 @@ loginPopup.addEventListener("click",function(e){
 });
 
 
+// escape key 
+
 
 document.addEventListener("keydown",function(e){
 
@@ -323,6 +353,8 @@ document.addEventListener("keydown",function(e){
 
 });
 
+
+// login & register animation 
 
 
 function showLogin(){
@@ -364,6 +396,8 @@ function showRegister(){
 }
 
 
+// login & and Register link 
+
 
 registerLink.addEventListener("click",function(e){
 
@@ -384,6 +418,8 @@ loginLink.addEventListener("click",function(e){
 });
 
 
+// Notification 
+
 
 function showToast(message){
 
@@ -399,6 +435,8 @@ function showToast(message){
 
 }
 
+
+// Form Sign in button 
 
 
 signInBtn.addEventListener("click",function(e){
@@ -429,6 +467,8 @@ signInBtn.addEventListener("click",function(e){
 
 });
 
+
+// Form Sign up button
 
 
 signUpBtn.addEventListener("click",function(e){
@@ -505,9 +545,11 @@ signUpBtn.addEventListener("click",function(e){
 
 });
 
-
-
 showLogin();
+
+
+// checkout system opener 
+
 
 checkoutBtn.addEventListener("click",(e)=>{
 
@@ -527,6 +569,10 @@ checkoutBtn.addEventListener("click",(e)=>{
 
 });
 
+
+// checkout system closer
+
+
 closeCheckout.addEventListener("click",(e)=>{
 
     e.preventDefault();
@@ -544,6 +590,10 @@ checkoutOverlay.addEventListener("click",(e)=>{
     }
 
 });
+
+
+// display total amount
+
 
 function renderCheckout(){
 
@@ -591,6 +641,10 @@ function renderCheckout(){
 
 }
 
+
+// payment methods 
+
+
 paymentMethods.forEach(method=>{
 
     method.addEventListener("change",()=>{
@@ -614,6 +668,10 @@ paymentMethods.forEach(method=>{
     });
 
 });
+
+
+// submit form 
+
 
 checkoutForm.addEventListener("submit",(e)=>{
 
