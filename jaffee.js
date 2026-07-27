@@ -753,7 +753,7 @@ checkoutForm.addEventListener("submit", (e) => {
 
     for (const input of inputs) {
 
-        // Skip hidden card fields when COD is selected
+        // When COD is selected
 
         if (input.offsetParent === null) {
             continue;
@@ -767,7 +767,7 @@ checkoutForm.addEventListener("submit", (e) => {
 
     }
 
-    // Only validate card details if Credit Card is selected
+    // When Credit Card is selected
 
     const selectedPayment = document.querySelector('input[name="payment"]:checked').value;
 
