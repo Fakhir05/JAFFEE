@@ -13,6 +13,7 @@ const registerLink = document.getElementById("registerLink");
 const signInBtn = document.getElementById("SignInBtn");
 const signUpBtn = document.getElementById("SignUpBtn");
 const toaster = document.querySelector(".toaster");
+const checkoutToast = document.querySelector(".checkout-toast");
 const menuContainer = document.getElementById("menu-container");
 const cartList = document.querySelector(".cart-list");
 const hamburger = document.querySelector(".hamburger");
@@ -30,6 +31,8 @@ const paymentMethods = document.querySelectorAll('input[name="payment"]');
 const creditCardInfo = document.getElementById("credit-card-info");
 const codInfo = document.getElementById("cod-info");
 const checkoutForm = document.getElementById("checkout-form");
+let registeredUser = "";
+let registeredPass = "";
 
 
 // cart tab open and close 
@@ -295,14 +298,14 @@ orderBtn.addEventListener("click", (e) => {
 // login & register open & close
 
 
-function openPopup(){
+function openPopup() {
 
     loginPopup.classList.add("active");
     document.body.style.overflow = "hidden";
 
 }
 
-function closePopup(){
+function closePopup() {
 
     loginPopup.classList.remove("active");
     document.body.style.overflow = "";
@@ -313,9 +316,9 @@ function closePopup(){
 // sign in to login & register 
 
 
-openLoginBtns.forEach(btn=>{
+openLoginBtns.forEach(btn => {
 
-    btn.addEventListener("click",function(e){
+    btn.addEventListener("click", function (e) {
 
         e.preventDefault();
 
@@ -325,13 +328,13 @@ openLoginBtns.forEach(btn=>{
 
 });
 
-closeLogin.addEventListener("click",closePopup);
+closeLogin.addEventListener("click", closePopup);
 
 
 
-loginPopup.addEventListener("click",function(e){
+loginPopup.addEventListener("click", function (e) {
 
-    if(e.target===loginPopup){
+    if (e.target === loginPopup) {
 
         closePopup();
 
@@ -343,9 +346,9 @@ loginPopup.addEventListener("click",function(e){
 // escape key 
 
 
-document.addEventListener("keydown",function(e){
+document.addEventListener("keydown", function (e) {
 
-    if(e.key==="Escape"){
+    if (e.key === "Escape") {
 
         closePopup();
 
@@ -357,41 +360,41 @@ document.addEventListener("keydown",function(e){
 // login & register animation 
 
 
-function showLogin(){
+function showLogin() {
 
-    loginForm.style.left="50%";
-    loginForm.style.opacity="1";
+    loginForm.style.left = "50%";
+    loginForm.style.opacity = "1";
 
-    registerForm.style.left="150%";
-    registerForm.style.opacity="0";
+    registerForm.style.left = "150%";
+    registerForm.style.opacity = "0";
 
-    document.querySelector(".login-wrapper").style.height="520px";
+    document.querySelector(".login-wrapper").style.height = "520px";
 
-    loginTitle.style.top="50%";
-    loginTitle.style.opacity="1";
+    loginTitle.style.top = "50%";
+    loginTitle.style.opacity = "1";
 
-    registerTitle.style.top="120%";
-    registerTitle.style.opacity="0";
+    registerTitle.style.top = "120%";
+    registerTitle.style.opacity = "0";
 
 }
 
 
 
-function showRegister(){
+function showRegister() {
 
-    loginForm.style.left="-50%";
-    loginForm.style.opacity="0";
+    loginForm.style.left = "-50%";
+    loginForm.style.opacity = "0";
 
-    registerForm.style.left="50%";
-    registerForm.style.opacity="1";
+    registerForm.style.left = "50%";
+    registerForm.style.opacity = "1";
 
-    document.querySelector(".login-wrapper").style.height="610px";
+    document.querySelector(".login-wrapper").style.height = "610px";
 
-    loginTitle.style.top="-50%";
-    loginTitle.style.opacity="0";
+    loginTitle.style.top = "-50%";
+    loginTitle.style.opacity = "0";
 
-    registerTitle.style.top="50%";
-    registerTitle.style.opacity="1";
+    registerTitle.style.top = "50%";
+    registerTitle.style.opacity = "1";
 
 }
 
@@ -399,7 +402,7 @@ function showRegister(){
 // login & and Register link 
 
 
-registerLink.addEventListener("click",function(e){
+registerLink.addEventListener("click", function (e) {
 
     e.preventDefault();
 
@@ -409,7 +412,7 @@ registerLink.addEventListener("click",function(e){
 
 
 
-loginLink.addEventListener("click",function(e){
+loginLink.addEventListener("click", function (e) {
 
     e.preventDefault();
 
@@ -421,17 +424,32 @@ loginLink.addEventListener("click",function(e){
 // Notification 
 
 
-function showToast(message){
+function showToast(message) {
 
-    toaster.textContent=message;
+    toaster.textContent = message;
 
     toaster.classList.add("toggle");
 
-    setTimeout(()=>{
+    setTimeout(() => {
 
         toaster.classList.remove("toggle");
 
-    },3000);
+    }, 3000);
+
+}
+
+
+function showCheckoutToast(message) {
+
+    checkoutToast.textContent = message;
+
+    checkoutToast.classList.add("show");
+
+    setTimeout(() => {
+
+        checkoutToast.classList.remove("show");
+
+    }, 3000);
 
 }
 
@@ -439,31 +457,38 @@ function showToast(message){
 // Form Sign in button 
 
 
-signInBtn.addEventListener("click",function(e){
+signInBtn.addEventListener("click", function (e) {
 
     e.preventDefault();
 
-    const username=document.getElementById("user").value.trim();
+    const username = document.getElementById("user").value.trim();
+    const password = document.getElementById("pass").value.trim();
 
-    const password=document.getElementById("pass").value.trim();
-
-    if(username===""||password===""){
+    if (username === "" || password === "") {
 
         showToast("Please fill all fields.");
-
         return;
 
     }
 
-    showToast("Login Successful!");
+    if (username === registeredUser && password === registeredPass) {
 
-    document.querySelector(".login-form").reset();
+        showToast("Login Successful!");
 
-    setTimeout(()=>{
+        document.querySelector(".login-form").reset();
 
-        closePopup();
+        setTimeout(() => {
 
-    },1200);
+            closePopup();
+
+        }, 1200);
+
+    }
+    else {
+
+        showToast("Account Not Found!");
+
+    }
 
 });
 
@@ -471,21 +496,21 @@ signInBtn.addEventListener("click",function(e){
 // Form Sign up button
 
 
-signUpBtn.addEventListener("click",function(e){
+signUpBtn.addEventListener("click", function (e) {
 
     e.preventDefault();
 
-    const username=document.getElementById("reg-user").value.trim();
+    const username = document.getElementById("reg-user").value.trim();
 
-    const email=document.getElementById("email").value.trim();
+    const email = document.getElementById("email").value.trim();
 
-    const password=document.getElementById("reg-pass").value.trim();
+    const password = document.getElementById("reg-pass").value.trim();
 
-    const agree=document.getElementById("remember");
+    const agree = document.getElementById("remember");
 
 
 
-    if(username===""||email===""||password===""){
+    if (username === "" || email === "" || password === "") {
 
         showToast("Please fill all fields.");
 
@@ -495,11 +520,11 @@ signUpBtn.addEventListener("click",function(e){
 
 
 
-    const emailPattern=/^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
 
 
-    if(!emailPattern.test(email)){
+    if (!emailPattern.test(email)) {
 
         showToast("Enter valid email.");
 
@@ -509,7 +534,7 @@ signUpBtn.addEventListener("click",function(e){
 
 
 
-    if(password.length<6){
+    if (password.length < 6) {
 
         showToast("Password must be at least 6 characters.");
 
@@ -519,7 +544,7 @@ signUpBtn.addEventListener("click",function(e){
 
 
 
-    if(!agree.checked){
+    if (!agree.checked) {
 
         showToast("Accept Terms & Conditions.");
 
@@ -527,7 +552,8 @@ signUpBtn.addEventListener("click",function(e){
 
     }
 
-
+    registeredUser = username;
+    registeredPass = password;
 
     showToast("Registration Successful!");
 
@@ -537,11 +563,11 @@ signUpBtn.addEventListener("click",function(e){
 
 
 
-    setTimeout(()=>{
+    setTimeout(() => {
 
         showLogin();
 
-    },1200);
+    }, 1200);
 
 });
 
@@ -551,29 +577,23 @@ showLogin();
 // checkout system opener 
 
 
-checkoutBtn.addEventListener("click",(e)=>{
+checkoutBtn.addEventListener("click", (e) => {
 
     e.preventDefault();
 
-    if(cart.length===0){
-
-        alert("Your cart is empty.");
-
+    if (cart.length === 0) {
+        showCheckoutToast("Your cart is empty!");
         return;
-
     }
-
     renderCheckout();
-
     checkoutOverlay.classList.add("active");
-
 });
 
 
 // checkout system closer 
 
 
-closeCheckout.addEventListener("click",(e)=>{
+closeCheckout.addEventListener("click", (e) => {
 
     e.preventDefault();
 
@@ -581,9 +601,9 @@ closeCheckout.addEventListener("click",(e)=>{
 
 });
 
-checkoutOverlay.addEventListener("click",(e)=>{
+checkoutOverlay.addEventListener("click", (e) => {
 
-    if(e.target===checkoutOverlay){
+    if (e.target === checkoutOverlay) {
 
         checkoutOverlay.classList.remove("active");
 
@@ -595,15 +615,15 @@ checkoutOverlay.addEventListener("click",(e)=>{
 // display total amount
 
 
-function renderCheckout(){
+function renderCheckout() {
 
-    checkoutCartItems.innerHTML="";
+    checkoutCartItems.innerHTML = "";
 
-    let subtotal=0;
+    let subtotal = 0;
 
-    cart.forEach(item=>{
+    cart.forEach(item => {
 
-        subtotal += item.price*item.qty;
+        subtotal += item.price * item.qty;
 
         checkoutCartItems.innerHTML += `
 
@@ -625,7 +645,7 @@ function renderCheckout(){
 
             <strong>
 
-                Rs.${item.price*item.qty}
+                Rs.${item.price * item.qty}
 
             </strong>
 
@@ -635,21 +655,31 @@ function renderCheckout(){
 
     });
 
-    checkoutSubtotal.innerHTML=`Rs.${subtotal}`;
+    checkoutSubtotal.innerHTML = `Rs.${subtotal}`;
 
-    checkoutTotal.innerHTML=`Rs.${subtotal+250}`;
+    checkoutTotal.innerHTML = `Rs.${subtotal + 250}`;
 
 }
+
+
+// zip code 
+
+
+const zip = document.getElementById("zip");
+
+zip.addEventListener("input", () => {
+    zip.value = zip.value.replace(/\D/g, "");
+});
 
 
 // payment methods 
 
 
-paymentMethods.forEach(method=>{
+paymentMethods.forEach(method => {
 
-    method.addEventListener("change",()=>{
+    method.addEventListener("change", () => {
 
-        if(method.value==="card" && method.checked){
+        if (method.value === "card" && method.checked) {
 
             creditCardInfo.classList.remove("hidden");
 
@@ -657,7 +687,7 @@ paymentMethods.forEach(method=>{
 
         }
 
-        if(method.value==="cod" && method.checked){
+        if (method.value === "cod" && method.checked) {
 
             creditCardInfo.classList.add("hidden");
 
@@ -670,51 +700,133 @@ paymentMethods.forEach(method=>{
 });
 
 
+// card numbers 
+
+
+const cardNumber = document.getElementById("card-number");
+
+cardNumber.addEventListener("input", () => {
+    let value = cardNumber.value.replace(/\D/g, "");
+    value = value.substring(0, 16);
+    value = value.match(/.{1,4}/g)?.join("-") || "";
+    cardNumber.value = value;
+});
+
+
+// expiry date
+
+
+const expiry = document.getElementById("card-expiry");
+
+expiry.addEventListener("input", () => {
+    let value = expiry.value.replace(/\D/g, "");
+    value = value.substring(0, 4);
+    if (value.length > 2) {
+        value = value.substring(0, 2) + "/" + value.substring(2);
+    }
+    expiry.value = value;
+});
+
+
+// CVV
+
+
+const cvv = document.getElementById("card-cvv");
+
+cvv.addEventListener("input", () => {
+    cvv.value = cvv.value.replace(/\D/g, "");
+});
+
+
 // submit form 
 
 
-checkoutForm.addEventListener("submit",(e)=>{
+checkoutForm.addEventListener("submit", (e) => {
 
     e.preventDefault();
-
-    if(cart.length===0){
-
-        alert("Your cart is empty.");
-
+    if (cart.length === 0) {
+        showCheckoutToast("Your cart is empty!");
         return;
+    }
+
+    const inputs = checkoutForm.querySelectorAll("input[required]");
+
+    for (const input of inputs) {
+
+        // Skip hidden card fields when COD is selected
+
+        if (input.offsetParent === null) {
+            continue;
+        }
+
+        if (!input.checkValidity()) {
+            showCheckoutToast("Please complete all required information.");
+            input.focus();
+            return;
+        }
 
     }
 
-       showToast("Order Placed Successfully!");
+    // Only validate card details if Credit Card is selected
+
+    const selectedPayment = document.querySelector('input[name="payment"]:checked').value;
+
+    if (selectedPayment === "card") {
+
+        // Card Number
+
+        if (cardNumber.value.length !== 19) {
+            showCheckoutToast("Enter a valid card number.");
+            cardNumber.focus();
+            return;
+        }
+
+        // Expiry
+
+        const exp = expiry.value.split("/");
+        const month = Number(exp[0]);
+        const year = Number(exp[1]);
+        const today = new Date();
+        const currentMonth = today.getMonth() + 1;
+        const currentYear = today.getFullYear() % 100;
+
+        if (expiry.value.length !== 5) {
+            showCheckoutToast("Enter expiry in MM/YY format.");
+            expiry.focus();
+            return;
+        }
+
+        if (month < 1 || month > 12) {
+            showCheckoutToast("Expiry month must be between 01 and 12.");
+            expiry.focus();
+            return;
+        }
+
+        if (year < currentYear || (year === currentYear && month < currentMonth)) {
+            showCheckoutToast("Your card has expired.");
+            expiry.focus();
+            return;
+        }
+
+        // CVV
+
+        if (cvv.value.length !== 3) {
+            showCheckoutToast("Enter a valid CVV.");
+            cvv.focus();
+            return;
+        }
+
+    }
 
     setTimeout(() => {
+        showCheckoutToast("Thank you for ordering from JAFFEE!");
+    }, 300);
 
-        alert("Thank you for ordering from JAFFEE!");
-
-    },300);
-
-    
     cart = [];
     renderCart();
-
-    
-    checkoutForm.reset();
-
-    
-    checkoutModal.classList.remove("checkout-active");
-
-   
-
-    cart=[];
-
-    renderCart();
-
     checkoutOverlay.classList.remove("active");
-
     checkoutForm.reset();
-
     creditCardInfo.classList.remove("hidden");
-
     codInfo.classList.add("hidden");
 
 });
