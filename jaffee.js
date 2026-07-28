@@ -39,7 +39,10 @@ let registeredPass = "";
 
 
 cartIcon.addEventListener('click', () => cartTab.classList.add('cart-active'));
-closeBtn.addEventListener('click', () => cartTab.classList.remove('cart-active'));
+closeBtn.addEventListener('click', (e) => {
+    e.preventDefault();
+    cartTab.classList.remove('cart-active')
+});
 
 
 // prducts list 
