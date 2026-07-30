@@ -23,6 +23,7 @@ body {
     --text3: #a6a19d;
     --button: #4E6E58;
     --button2: #D97443;
+    --hover: #2C2924;
 }
 
 
@@ -97,41 +98,59 @@ li {
 }
 
 .btn:hover {
-    background-color: #2C2924;
+    background-color: var(--hover);
 
 }
 
 li a:hover {
-    color: #2C2924;
+    color: var(--hover);
 
 }
 
 .cart-icon {
-    font-size: 1.3rem;
-    position: relative;
+    position: fixed;
+    bottom: 25px;
+    right: 25px;
+    width: 55px;
+    height: 55px;
+    background: var(--text);
+    color: var(--text2);
+    border-radius: 34%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    box-shadow: 0 8px 20px var(--text);
+    z-index: 99;
 
 }
 
 
 .cart-icon:hover {
-    color: #2C2924;
+    transform: translateY(-5px);
+    background: var(--hover);
 
 }
 
 
 .cart-icon .cart-value {
     position: absolute;
-    top: 50%;
-    right: -10px;
-    background-color: var(--text2);
-    color: var(--text);
-    font-size: 0.85rem;
-    border-radius: 100vw;
+    top: -6px;
+    right: -6px;
     width: 20px;
-    aspect-ratio: 1;
-    text-align: center;
-    line-height: 20px;
+    height: 20px;
+    border-radius: 50%;
+    background: var(--text);
+    color: var(--text2);
+    font-size: 13px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 
+}
+
+.cart-icon i {
+    font-size:  28px;
 }
 
 .action .hamburger {
@@ -199,6 +218,11 @@ li a:hover {
     max-width: 250px;
     margin: auto;
     text-align: center;
+    border-radius: 1rem;
+    border: 1px solid var(--text2);
+    box-shadow: 0 0 10px var(--text2);
+    background-color: #95908a;
+    padding-bottom: 3rem;
 }
 
 .item11-image img {
@@ -221,9 +245,6 @@ li a:hover {
     justify-content: center;
     align-items: center;
     flex-wrap: wrap;
-    border-radius: 1rem;
-    border: 1px solid var(--text2);
-    box-shadow: 0 0 10px var(--text2);
     padding: 20px;
 }
 
@@ -448,7 +469,7 @@ li a:hover {
 }
 
 .close-login:hover {
-    background: #2C2924;
+    background: var(--hover);
 }
 
 .form-header {
@@ -585,13 +606,13 @@ li a:hover {
 
 
 .btn-submit:hover {
-    background: #2C2924;
+    background: var(--hover);
 }
 
 .switch-form {
     margin-top: 18px;
     text-align: center;
-    color: #2C2924;
+    color: var(--hover);
 }
 
 .switch-form a {
@@ -600,7 +621,7 @@ li a:hover {
 }
 
 .switch-form a:hover {
-    color: #2C2924;
+    color: var(--hover);
     text-decoration: underline;
 }
 
@@ -725,7 +746,7 @@ li a:hover {
 
 .close-checkout:hover {
 
-    background: #2C2924;
+    background: var(--hover);
 
 
 }
@@ -878,7 +899,7 @@ li a:hover {
 
 .submit-btn:hover {
 
-    background: #2C2924;
+    background: var(--hover);
 
 }
 
@@ -1111,7 +1132,7 @@ li a:hover {
     }
 
     .mobile-menu .btn:hover {
-        background-color: #2C2924;
+        background-color: var(--hover);
     }
 
 

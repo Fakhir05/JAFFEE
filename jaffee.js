@@ -39,6 +39,7 @@ let registeredPass = "";
 
 
 cartIcon.addEventListener('click', () => cartTab.classList.add('cart-active'));
+cartIcon.addEventListener('click', (e) => e.preventDefault());
 closeBtn.addEventListener('click', (e) => {
     e.preventDefault();
     cartTab.classList.remove('cart-active')
@@ -76,19 +77,20 @@ const products = [
         items: [
             { id: 11, name: "MATCHA LATTE", price: 1400, image: "images/Matcha_Latte-removebg-preview.png" },
             { id: 12, name: "CHAI TEA LATTE", price: 1400, image: "images/Chai_Tea_Latte-removebg-preview.png" },
-            { id: 13, name: "HOT CHOCOLATE", price: 1200, image: "images/Hot_Chocolate-removebg-preview.png" },
-            { id: 14, name: "GREEN TEA", price: 975, image: "images/Jasmine_Green_Tea-removebg-preview.png" }
+            { id: 13, name: "FRENCH PRESS", price: 1100, image: "images/french-press-removebg-preview.png" },
+            { id: 14, name: "HOT CHOCOLATE", price: 1200, image: "images/Hot_Chocolate-removebg-preview.png" },
+            { id: 15, name: "GREEN TEA", price: 975, image: "images/Jasmine_Green_Tea-removebg-preview.png" }
         ]
     },
 
     {
         category: "Artisan Bakery",
         items: [
-            { id: 15, name: "BUTTER CROISSANT", price: 1050, image: "images/Butter_Croissant-removebg-preview.png" },
-            { id: 16, name: "ALMOND CROISSANT", price: 1250, image: "images/Almond_Croissant-removebg-preview.png" },
-            { id: 17, name: "BLUEBERRY MUFFIN", price: 1100, image: "images/Blueberry_Muffin-removebg-preview.png" },
-            { id: 18, name: "CINNAMON ROLL", price: 1250, image: "images/Cinnamon_Roll-removebg-preview.png" },
-            { id: 19, name: "AVOCADO TOAST", price: 2360, image: "images/Sourdough_Avocado_Toast-removebg-preview.png" }
+            { id: 16, name: "BUTTER CROISSANT", price: 1050, image: "images/Butter_Croissant-removebg-preview.png" },
+            { id: 17, name: "ALMOND CROISSANT", price: 1250, image: "images/Almond_Croissant-removebg-preview.png" },
+            { id: 18, name: "BLUEBERRY MUFFIN", price: 1100, image: "images/Blueberry_Muffin-removebg-preview.png" },
+            { id: 19, name: "CINNAMON ROLL", price: 1250, image: "images/Cinnamon_Roll-removebg-preview.png" },
+            { id: 20, name: "AVOCADO TOAST", price: 2360, image: "images/Sourdough_Avocado_Toast-removebg-preview.png" }
         ]
     }
 ];
