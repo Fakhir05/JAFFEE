@@ -31,6 +31,11 @@ const paymentMethods = document.querySelectorAll('input[name="payment"]');
 const creditCardInfo = document.getElementById("credit-card-info");
 const codInfo = document.getElementById("cod-info");
 const checkoutForm = document.getElementById("checkout-form");
+const historyIcon = document.querySelector(".history-icon");
+const historyOverlay = document.querySelector(".history-overlay");
+const closeHistory = document.querySelector(".close-history");
+const historyList = document.getElementById("history-list");
+const clearHistoryBtn = document.querySelector(".clear-history-btn");
 let registeredUser = "";
 let registeredPass = "";
 
@@ -667,6 +672,120 @@ function renderCheckout() {
 }
 
 
+// History
+
+
+function renderHistory() {
+
+    const orders =
+        JSON.parse(localStorage.getItem("orderHistory")) || [];
+
+    historyList.innerHTML = "";
+
+    if (orders.length === 0) {
+
+        historyList.innerHTML = "<p>No orders yet.</p>";
+
+        return;
+
+    }
+
+    orders.slice().reverse().forEach(order => {
+
+        historyList.innerHTML += `
+
+        <div class="history-order">
+
+            <h3>Order #${order.orderNo}</h3>
+
+            <p><strong>Date:</strong> ${order.date}</p>
+
+            <p><strong>Time:</strong> ${order.time}</p>
+
+            <p><strong>Payment:</strong> ${order.payment}</p>
+
+            <hr>
+
+            ${order.items.map(item => `
+
+            <div class="history-item">
+
+                <span>${item.name} × ${item.qty}</span>
+
+                <span>Rs.${item.price * item.qty}</span>
+
+            </div>
+
+            `).join("")}
+
+            <hr>
+
+            <h4>Total : Rs.${order.total}</h4>
+
+            <div style="margin-top:15px;display:flex;gap:10px;">
+
+                <button class="btn repeat-order" data-order="${order.orderNo}">
+                    Repeat Order
+                </button>
+
+            </div>
+
+        </div>
+
+        `;
+
+    });
+
+}
+
+
+historyIcon.addEventListener("click", (e) => {
+
+    e.preventDefault();
+
+    renderHistory();
+
+    historyOverlay.classList.add("active");
+
+});
+
+closeHistory.addEventListener("click", (e) => {
+
+    e.preventDefault();
+
+    historyOverlay.classList.remove("active");
+
+});
+
+historyOverlay.addEventListener("click", (e) => {
+
+    if (e.target === historyOverlay) {
+
+        historyOverlay.classList.remove("active");
+
+    }
+
+});
+
+
+clearHistoryBtn.addEventListener("click", () => {
+
+    const history = JSON.parse(localStorage.getItem("orderHistory")) || [];
+
+    if (history.length === 0) {
+        showCheckoutToast("History is empty!");
+        return;
+    }
+
+    localStorage.removeItem("orderHistory");
+
+    renderHistory();
+
+    showCheckoutToast("History cleared!");
+
+});
+
+
 // zip code 
 
 
@@ -827,11 +946,60 @@ checkoutForm.addEventListener("submit", (e) => {
         showCheckoutToast("Thank you for ordering from JAFFEE!");
     }, 300);
 
+    // SAVE ORDER
+
+    const history =
+        JSON.parse(localStorage.getItem("orderHistory")) || [];
+    const now = new Date();
+
+    const order = {
+        orderNo: history.length + 1001,
+        date: now.toLocaleDateString(),
+        time: now.toLocaleTimeString(),
+        payment: selectedPayment === "card"
+            ? "Credit Card"
+            : "Cash On Delivery",
+
+        items: [...cart],
+
+        total: cart.reduce((sum, item) => sum + item.price * item.qty, 0) + 250
+
+    };
+
+    history.push(order);
+
+    localStorage.setItem("orderHistory", JSON.stringify(history));
+
     cart = [];
     renderCart();
+    cartTab.classList.remove("cart-active");
     checkoutOverlay.classList.remove("active");
     checkoutForm.reset();
     creditCardInfo.classList.remove("hidden");
     codInfo.classList.add("hidden");
+
+});
+
+document.addEventListener("click", (e) => {
+
+    if (!e.target.classList.contains("repeat-order")) return;
+    const orderNo = Number(e.target.dataset.order);
+    const history = JSON.parse(localStorage.getItem("orderHistory")) || [];
+    const order = history.find(o => o.orderNo === orderNo);
+    if (!order) return;
+    cart = [];
+
+    order.items.forEach(item => {
+
+        cart.push({
+            ...item
+        });
+
+    });
+
+    renderCart();
+    historyOverlay.classList.remove("active");
+    cartTab.classList.add("cart-active");
+    showCheckoutToast("Previous order added to cart!");
 
 });

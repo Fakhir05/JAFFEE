@@ -93,7 +93,9 @@ li {
     border-radius: 1rem;
     background-color: var(--text);
     border: 1px solid var(--text2);
+    color: var(--text2);
     font-size: 1.1rem;
+    transition: .3s;
 
 }
 
@@ -109,7 +111,7 @@ li a:hover {
 
 .cart-icon {
     position: fixed;
-    bottom: 25px;
+    bottom: 87px;
     right: 25px;
     width: 55px;
     height: 55px;
@@ -127,7 +129,7 @@ li a:hover {
 
 
 .cart-icon:hover {
-    transform: translateY(-5px);
+    transform: translateY(5px);
     background: var(--hover);
 
 }
@@ -150,7 +152,7 @@ li a:hover {
 }
 
 .cart-icon i {
-    font-size:  28px;
+    font-size: 28px;
 }
 
 .action .hamburger {
@@ -162,6 +164,34 @@ li a:hover {
 .mobile-menu {
     display: none;
 
+}
+
+
+.history-icon {
+    position: fixed;
+    bottom: 25px;
+    right: 25px;
+    width: 55px;
+    height: 55px;
+    background: var(--text);
+    color: var(--text2);
+    border-radius: 34%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    box-shadow: 0 8px 20px var(--text);
+    z-index: 99;
+}
+
+
+.history-icon:hover {
+    transform: translateY(-5px);
+    background: var(--hover);
+}
+
+.history-icon i {
+    font-size: 28px;
 }
 
 
@@ -976,6 +1006,97 @@ li a:hover {
 
 }
 
+/* HISTORY */
+
+.history-overlay {
+
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, .7);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    opacity: 0;
+    visibility: hidden;
+    transition: .3s;
+    z-index: 9999;
+    padding: 20px;
+}
+
+.history-overlay.active {
+    opacity: 1;
+    visibility: visible;
+}
+
+.history-popup {
+
+    width: 100%;
+    max-width: 700px;
+    max-height: 85vh;
+    overflow-y: auto;
+    background: #746c67;
+    border-radius: 20px;
+    padding: 30px;
+    position: relative;
+
+}
+
+.close-history {
+
+    position: absolute;
+    right: 20px;
+    top: 20px;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background: #1C1A17;
+    color: #8C7A6B;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.history-order {
+
+    background: #a6a19d;
+    border-radius: 15px;
+    padding: 18px;
+    margin-top: 20px;
+}
+
+.history-order h3 {
+    margin-bottom: 10px;
+}
+
+.history-order p {
+    margin: 5px 0;
+}
+
+.history-item {
+
+    display: flex;
+    justify-content: space-between;
+    margin: 5px 0;
+
+}
+
+.clear-history-btn {
+
+    width: 100%;
+    margin-top: 25px;
+    padding: 15px;
+    border: none;
+    border-radius: 12px;
+    cursor: pointer;
+    background: var(--text);
+    color: var(--text2);
+    font-size: 16px;
+    transition: .3s;
+}
+
+.clear-history-btn:hover {
+    background: var(--hover);
+}
 
 
 
@@ -1329,5 +1450,22 @@ li a:hover {
         font-size: 19px;
 
     }
+
+    .history-popup {
+        padding: 20px;
+    }
+
+    .history-order {
+        padding: 15px;
+    }
+
+    .history-order h3 {
+        font-size: 18px;
+    }
+
+    .history-item {
+        font-size: 14px;
+    }
+
 
 }
