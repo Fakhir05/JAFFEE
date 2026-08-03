@@ -1,6 +1,6 @@
 # ☕ JAFFEE
 
-A modern, fully responsive front-end coffee shop website built using **HTML5**, **CSS3**, and **Vanilla JavaScript**. JAFFEE provides an interactive online ordering experience with a dynamic menu, shopping cart, authentication popup, checkout system, and responsive design.
+A modern, fully responsive front-end coffee shop website built using **HTML5**, **CSS3**, and **Vanilla JavaScript**. JAFFEE provides an interactive online ordering experience with a dynamic menu, shopping cart, authentication system, checkout process, order history management, and responsive design.
 
 ---
 
@@ -29,6 +29,18 @@ A modern, fully responsive front-end coffee shop website built using **HTML5**, 
 - Live cart counter
 - Real-time total price calculation
 
+### 📜 Order History
+- Responsive order history popup
+- Automatically saves every successful order
+- Displays order number
+- Displays complete order summary
+- Displays order date & time
+- Repeat Order button
+- Clear History button
+- Empty history validation
+- Stores history using Local Storage
+- Preserves history after browser refresh
+
 ### 🔐 Login & Registration
 - Animated popup modal
 - Login form
@@ -47,14 +59,30 @@ A modern, fully responsive front-end coffee shop website built using **HTML5**, 
 - Dynamic order summary
 - Delivery charges calculation
 - Place Order functionality
+- Automatic order history saving
 - Success toast notification
 - Thank You confirmation message
+
+### 🔔 Toast Notifications
+- Login success
+- Registration success
+- Validation messages
+- Empty cart notification
+- Successful order notification
+- History cleared notification
+- History empty notification
+
+### 💾 Local Storage
+- Saves order history automatically
+- Loads previous orders after page refresh
+- Persistent browser storage
 
 ### 📱 Responsive Design
 - Mobile navigation
 - Responsive menu cards
 - Responsive shopping cart
 - Responsive checkout page
+- Responsive order history popup
 - Responsive footer
 - Optimized layouts for desktop, tablet, and mobile devices
 
@@ -65,6 +93,7 @@ A modern, fully responsive front-end coffee shop website built using **HTML5**, 
 - Toast notifications
 - Interactive buttons
 - Modern UI design
+- One-click Repeat Order functionality
 
 ---
 
@@ -81,7 +110,8 @@ JAFFEE/
 │   ├── Logo
 │   ├── Banner
 │   ├── Video
-│   └── Icons
+│   ├── Icons
+│   └── Screenshots
 │
 └── README.md
 ```
@@ -102,6 +132,7 @@ JAFFEE/
 - Logo
 - Navigation Menu
 - Cart Icon
+- History Icon
 - Sign In Button
 - Hamburger Menu
 
@@ -143,6 +174,14 @@ JAFFEE/
 - Order Summary
 - Place Order Button
 
+## 10. Order History Popup
+- Order Cards
+- Order Number
+- Order Summary
+- Order Date & Time
+- Repeat Order Button
+- Clear History Button
+
 ---
 
 # 🎨 CSS Organization
@@ -160,6 +199,7 @@ JAFFEE/
 - Shopping Cart
 - Login Modal
 - Checkout Modal
+- Order History Modal
 - Footer
 
 ## Components
@@ -167,7 +207,10 @@ JAFFEE/
 - Forms
 - Cards
 - Cart Items
-- Toast Notification
+- Order History Cards
+- Repeat Order Button
+- Clear History Button
+- Toast Notifications
 
 ## Responsive Design
 - Desktop Layout
@@ -223,7 +266,10 @@ JAFFEE/
 - Login success
 - Registration success
 - Validation messages
-- Order success
+- Empty cart notification
+- Order success notification
+- History cleared notification
+- History empty notification
 
 ## Login Validation
 - Username validation
@@ -243,8 +289,18 @@ JAFFEE/
 - Payment method switching
 - Form validation
 - Order placement
+- Save order history
 - Clear cart
 - Reset form
+
+## Order History
+- Save completed orders
+- Generate order numbers
+- Store date & time
+- Display previous orders
+- Repeat previous orders
+- Clear all order history
+- Load history from Local Storage
 
 ---
 
@@ -253,6 +309,7 @@ JAFFEE/
 - HTML5
 - CSS3
 - Vanilla JavaScript (ES6)
+- Local Storage API
 - Flexbox
 - CSS Grid
 - CSS Variables
@@ -278,6 +335,11 @@ JAFFEE/
 - map()
 - find()
 - flatMap()
+- filter()
+- JSON.stringify()
+- JSON.parse()
+- Local Storage
+- Date Object
 - Conditional Statements
 - Form Validation
 - Class Manipulation
@@ -290,13 +352,13 @@ JAFFEE/
 Clone the repository:
 
 ```bash
-https://github.com/Fakhir05/JAFFEE
+git clone https://github.com/Fakhir05/JAFFEE.git
 ```
 
 Open the project folder:
 
 ```bash
-cd jaffee
+cd JAFFEE
 ```
 
 Finally, open **index.html** in your browser.
@@ -307,38 +369,78 @@ No installation or build process is required.
 
 # 📸 Screenshots
 
+### 🏠 Home Page
 
-- Home Page
-  
-  <img width="950" height="455" alt="image" src="https://github.com/user-attachments/assets/8f415314-a8c5-41e0-94b7-a0577c6ae3d2" />
+<p align="center">
+<img width="945" height="451" alt="image" src="https://github.com/user-attachments/assets/fc58bc0d-f742-4303-92b3-5d93f120b5db" />
+</p>
 
-- Menu
-  
-  <img width="947" height="454" alt="image" src="https://github.com/user-attachments/assets/730b62fd-c22d-4633-a24b-9daf2d61aff4" />
+### ☕ Menu
 
-- Shopping Cart
+<p align="center">
+<img width="946" height="451" alt="image" src="https://github.com/user-attachments/assets/4d7f285e-db39-49aa-bf71-affce9e86bb4" />
+</p>
 
-  <img width="949" height="454" alt="image" src="https://github.com/user-attachments/assets/6645f2ae-c236-41fe-8c43-eda8fb29ac56" />
+### 🛒 Shopping Cart
 
-- Login Popup
+<p align="center">
+<img width="945" height="449" alt="image" src="https://github.com/user-attachments/assets/b15dbe0d-ff09-4122-801c-0dce5b434e49" />
+</p>
 
-  <img width="953" height="452" alt="image" src="https://github.com/user-attachments/assets/c1f784b8-e358-475e-b181-98ace7b35949" />
+### 🔐 Login Popup
 
-- Registration Popup
+<p align="center">
+<img width="950" height="450" alt="image" src="https://github.com/user-attachments/assets/03d3c342-af22-4828-b2ab-d8726b5748b5" />
+</p>
 
-  <img width="955" height="452" alt="image" src="https://github.com/user-attachments/assets/b5d697ae-d452-4a51-ae34-f3b3fa5a8b5c" />
+### 📝 Registration Popup
 
-- Checkout Page
+<p align="center">
+<img width="953" height="450" alt="image" src="https://github.com/user-attachments/assets/e23fb046-b9b9-4227-bcb2-cf32e2fb1fd8" />
+</p>
 
-  <img width="949" height="454" alt="image" src="https://github.com/user-attachments/assets/eb99e9a2-3ad3-43f0-8ca8-d21accb6e569" />
+### 💳 Checkout Page
 
-- Mobile View
+<p align="center">
+<img width="943" height="449" alt="image" src="https://github.com/user-attachments/assets/396e414b-dc93-421e-8bbe-ada47173da48" />
+</p>
 
- <img width="303" height="454" alt="image" src="https://github.com/user-attachments/assets/082b9318-ae9e-4843-b386-d8b170d004d5" /> <img width="302" height="454" alt="image" src="https://github.com/user-attachments/assets/f211061a-e51e-4c99-ab9c-0fb8e586cedd" /> <img width="302" height="452" alt="image" src="https://github.com/user-attachments/assets/32157457-cab2-456b-a2f0-1b3cc97c865d" /> <img width="311" height="452" alt="image" src="https://github.com/user-attachments/assets/b23cad53-75a5-47bf-820b-643719e946c7" /> <img width="308" height="452" alt="image" src="https://github.com/user-attachments/assets/a49bfc88-5b76-40c6-b8a7-bc609903faab" /> <img width="302" height="452" alt="image" src="https://github.com/user-attachments/assets/846bfe98-a81c-4b76-ab8f-4633a14c9731" />
+### 📜 Order History
 
+<p align="center">
+  <img width="944" height="452" alt="image" src="https://github.com/user-attachments/assets/48f2fda0-e738-4031-8eb2-b4bf390980bd" />
+</p>
 
+### 📱 Mobile View
 
-
- 
+<p align="center">
+<img width="299" height="450" alt="image" src="https://github.com/user-attachments/assets/4bae906b-bd8a-4802-af80-fea988459a48" />
+<img width="296" height="449" alt="image" src="https://github.com/user-attachments/assets/2ee930ee-887d-42fe-9c8b-25e50188cd42" />
+<img width="296" height="451" alt="image" src="https://github.com/user-attachments/assets/78e5f401-6143-4260-8f26-6dc94a90b8cc" />
+<img width="298" height="449" alt="image" src="https://github.com/user-attachments/assets/2538522b-7d47-4250-a6d4-15e19468902a" />
+<img width="298" height="452" alt="image" src="https://github.com/user-attachments/assets/69873d78-11d3-4901-9481-e722a4d7de1b" />
+<img width="297" height="446" alt="image" src="https://github.com/user-attachments/assets/b9aabc45-3d52-4a33-b5c5-21c2a871ff47" />
+</p>
 
 ---
+
+# ⭐ Future Improvements
+
+- User authentication with backend
+- Online payment gateway integration
+- Order tracking
+- Customer profile
+- Wishlist
+- Product search & filtering
+- Dark mode
+- Admin dashboard
+- Backend database integration
+
+---
+
+# 👨‍💻 Author
+
+**Fakhir Asghar**
+
+GitHub: https://github.com/Fakhir05
+
