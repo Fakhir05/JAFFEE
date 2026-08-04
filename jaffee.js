@@ -36,6 +36,15 @@ const historyOverlay = document.querySelector(".history-overlay");
 const closeHistory = document.querySelector(".close-history");
 const historyList = document.getElementById("history-list");
 const clearHistoryBtn = document.querySelector(".clear-history-btn");
+const policiesOverlay = document.querySelector(".policies-overlay");
+const closePolicies = document.querySelector(".close-policies");
+const openPoliciesBtns = document.querySelectorAll(".open-policies");
+const termsBtn = document.getElementById("termsBtn");
+const privacyBtn = document.getElementById("privacyBtn");
+const termsContent = document.querySelector(".terms-content");
+const privacyContent = document.querySelector(".privacy-content");
+const footerTerms = document.querySelector(".footer-terms");
+const footerPrivacy = document.querySelector(".footer-privacy");
 let registeredUser = "";
 let registeredPass = "";
 
@@ -292,6 +301,18 @@ document.querySelectorAll(".mobile-menu a").forEach(link => {
     });
 });
 
+document.addEventListener("keydown", function (e) {
+
+    if (e.key === "Escape") {
+        mobileMenu.classList.remove("mobile-menu-active");
+
+        hamburgerIcon.classList.remove("fa-xmark");
+        hamburgerIcon.classList.add("fa-bars");
+
+    }
+
+});
+
 
 // smooth scrolling
 
@@ -361,6 +382,10 @@ document.addEventListener("keydown", function (e) {
     if (e.key === "Escape") {
 
         closePopup();
+        closePoliciesPopup();
+        closeHistory.click();
+        closeCheckout.click();
+        closeBtn.click();
 
     }
 
@@ -1002,4 +1027,86 @@ document.addEventListener("click", (e) => {
     cartTab.classList.add("cart-active");
     showCheckoutToast("Previous order added to cart!");
 
+});
+
+
+// Open Policies Popup
+
+
+function openPolicies() {
+    policiesOverlay.classList.add("active");
+    document.body.style.overflow = "hidden";
+}
+
+
+// Close Policies Popup
+
+
+function closePoliciesPopup() {
+    policiesOverlay.classList.remove("active")
+    document.body.style.overflow = "";
+}
+
+openPoliciesBtns.forEach(button => {
+
+    button.addEventListener("click", (e) => {
+        e.preventDefault();
+        openPolicies();
+        showTerms();
+    });
+
+});
+
+closePolicies.addEventListener("click", (e) => {
+    e.preventDefault();
+    closePoliciesPopup();
+});
+
+policiesOverlay.addEventListener("click", (e) => {
+
+    if (e.target === policiesOverlay) {
+        closePoliciesPopup();
+    }
+
+});
+
+
+// terms & conditions content
+
+
+function showTerms() {
+    termsContent.style.display = "block";
+    privacyContent.style.display = "none";
+    termsBtn.classList.add("active-policy");
+    privacyBtn.classList.remove("active-policy");
+}
+
+
+// Privacy policy content
+
+
+function showPrivacy() {
+    privacyContent.style.display = "block";
+    termsContent.style.display = "none";
+    privacyBtn.classList.add("active-policy");
+    termsBtn.classList.remove("active-policy");
+}
+
+termsBtn.addEventListener("click", showTerms);
+privacyBtn.addEventListener("click", showPrivacy);
+
+
+// Footer Buttons
+
+
+footerTerms.addEventListener("click", (e) => {
+    e.preventDefault();
+    openPolicies();
+    showTerms();
+});
+
+footerPrivacy.addEventListener("click", (e) => {
+    e.preventDefault();
+    openPolicies();
+    showPrivacy();
 });

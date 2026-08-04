@@ -29,6 +29,7 @@ body {
 
 /* basic styling */
 
+
 a {
     text-decoration: none;
     color: var(--text2);
@@ -73,6 +74,7 @@ li {
 
 
 /* header styling */
+
 
 .navbar {
     min-height: 14vh;
@@ -127,13 +129,11 @@ li a:hover {
 
 }
 
-
 .cart-icon:hover {
     transform: translateY(5px);
     background: var(--hover);
 
 }
-
 
 .cart-icon .cart-value {
     position: absolute;
@@ -166,7 +166,6 @@ li a:hover {
 
 }
 
-
 .history-icon {
     position: fixed;
     bottom: 25px;
@@ -184,7 +183,6 @@ li a:hover {
     z-index: 99;
 }
 
-
 .history-icon:hover {
     transform: translateY(-5px);
     background: var(--hover);
@@ -195,9 +193,8 @@ li a:hover {
 }
 
 
+/* section 1 styling */
 
-
-/* section styling */
 
 .hero-section {
     min-height: calc(100vh - 14vh);
@@ -241,7 +238,9 @@ li a:hover {
     scroll-margin-top: 100px;
 }
 
+
 /* section 2 styling */
+
 
 .item11 {
     width: 100%;
@@ -278,7 +277,9 @@ li a:hover {
     padding: 20px;
 }
 
+
 /* cart tab styling */
+
 
 .cart {
     position: fixed;
@@ -400,8 +401,8 @@ li a:hover {
 }
 
 
-
 /* section 3 styling  */
+
 
 .cent {
     display: flex;
@@ -446,7 +447,9 @@ li a:hover {
     box-shadow: 0 0 10px var(--text2);
 }
 
+
 /* sign in  */
+
 
 .login-overlay {
     position: fixed;
@@ -516,15 +519,13 @@ li a:hover {
     align-items: center;
 }
 
-
 .titles {
     position: relative;
     width: 160px;
     height: 60px;
 }
 
-.title-login,
-.title-register {
+.title-login,.title-register {
     position: absolute;
     left: 50%;
     top: 50%;
@@ -540,8 +541,7 @@ li a:hover {
     top: 120%;
 }
 
-.login-form,
-.register-form {
+.login-form,.register-form {
     position: absolute;
     left: 50%;
     top: 110px;
@@ -588,8 +588,7 @@ li a:hover {
     pointer-events: none;
 }
 
-.input-field:focus~.label,
-.input-field:valid~.label {
+.input-field:focus~.label,.input-field:valid~.label {
     top: 0;
     font-size: 12px;
     color: var(--button);
@@ -634,7 +633,6 @@ li a:hover {
     transition: .3s ease-in-out;
 }
 
-
 .btn-submit:hover {
     background: var(--hover);
 }
@@ -654,7 +652,6 @@ li a:hover {
     color: var(--hover);
     text-decoration: underline;
 }
-
 
 .toaster {
     position: fixed;
@@ -743,8 +740,6 @@ li a:hover {
 
 }
 
-
-
 .close-checkout {
 
     position: absolute;
@@ -781,8 +776,6 @@ li a:hover {
 
 }
 
-
-
 .checkout-container {
 
     display: grid;
@@ -792,8 +785,6 @@ li a:hover {
     gap: 40px;
 
 }
-
-
 
 .checkout-form-section {
 
@@ -933,7 +924,6 @@ li a:hover {
 
 }
 
-
 .order-summary-section {
 
     background: #746c67;
@@ -1006,7 +996,9 @@ li a:hover {
 
 }
 
+
 /* HISTORY */
+
 
 .history-overlay {
 
@@ -1099,8 +1091,147 @@ li a:hover {
 }
 
 
+/* POLICIES POPUP */
+
+
+.policies-overlay {
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, .65);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    opacity: 0;
+    visibility: hidden;
+    transition: .35s;
+    z-index: 10000;
+    padding: 20px;
+}
+
+.policies-overlay.active {
+    opacity: 1;
+    visibility: visible;
+}
+
+.policies-popup {
+    width: 100%;
+    max-width: 900px;
+    background: #746c67;
+    border-radius: 20px;
+    padding: 35px;
+    position: relative;
+    max-height: 90vh;
+    overflow-y: auto;
+    animation: popupScale .35s;
+}
+
+.close-policies {
+    position: absolute;
+    right: 20px;
+    top: 20px;
+    width: 42px;
+    height: 42px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: var(--text);
+    color: var(--text2);
+    border-radius: 50%;
+}
+
+.policy-buttons {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    margin: 30px 0;
+    flex-wrap: wrap;
+}
+
+.policy-btn {
+    padding: 14px 24px;
+    border: none;
+    cursor: pointer;
+    border-radius: 12px;
+    background: #746c67;
+    color: var(--text);
+    transition: .3s;
+}
+
+.policy-btn:hover {
+    background: var(--hover);
+}
+
+.active-policy {
+    background: var(--text);
+    color: var(--text2);
+}
+
+.policy-content {
+    background: var(--text3);
+    border-radius: 15px;
+    padding: 25px;
+}
+
+.terms-content h3,.privacy-content h3 {
+    font-size: 32px;
+    margin-bottom: 20px;
+    color: var(--text);
+}
+
+.terms-content h4,.privacy-content h4 {
+    margin-top: 25px;
+    margin-bottom: 10px;
+    color: var(--text);
+}
+
+.terms-content p,.privacy-content p {
+    line-height: 1.8;
+    color: var(--text);
+    margin-bottom: 15px;
+    text-align: justify;
+}
+
+.terms-content {
+    display: block;
+    animation: fadePolicy .4s;
+}
+
+.privacy-content {
+    display: none;
+    animation: fadePolicy .4s;
+}
+
+@keyframes fadePolicy {
+
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+
+}
+
+@keyframes popupScale {
+
+    from {
+        transform: scale(.8);
+        opacity: 0;
+    }
+
+    to {
+        transform: scale(1);
+        opacity: 1;
+    }
+
+}
+
 
 /* footer styling */
+
 
 .footer {
     position: relative;
@@ -1133,8 +1264,7 @@ li a:hover {
     width: 100%;
 }
 
-.footer-logo::before,
-.footer-logo::after {
+.footer-logo::before,.footer-logo::after {
     content: "";
     flex: 1;
     height: 1px;
@@ -1207,6 +1337,7 @@ li a:hover {
 
 
 /* media queries */
+
 
 @media screen and (max-width: 780px) {
 
@@ -1465,6 +1596,18 @@ li a:hover {
 
     .history-item {
         font-size: 14px;
+    }
+
+    .policies-popup {
+        padding: 20px;
+    }
+
+    .policy-buttons {
+        flex-direction: column;
+    }
+
+    .policy-btn {
+        width: 100%;
     }
 
 
