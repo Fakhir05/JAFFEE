@@ -362,7 +362,6 @@ openLoginBtns.forEach(btn => {
 closeLogin.addEventListener("click", closePopup);
 
 
-
 loginPopup.addEventListener("click", function (e) {
 
     if (e.target === loginPopup) {
