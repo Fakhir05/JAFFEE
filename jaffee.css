@@ -1159,6 +1159,7 @@ li a:hover {
 
 .policy-btn:hover {
     background: var(--hover);
+    color: var(--text2);
 }
 
 .active-policy {
