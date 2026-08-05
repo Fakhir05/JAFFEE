@@ -12,14 +12,9 @@ const loginLink = document.getElementById("loginLink");
 const registerLink = document.getElementById("registerLink");
 const signInBtn = document.getElementById("SignInBtn");
 const signUpBtn = document.getElementById("SignUpBtn");
-const username = document.getElementById("reg-user").value.trim();
-const email = document.getElementById("email").value.trim();
-const password = document.getElementById("reg-pass").value.trim();
-const agree = document.getElementById("remember");
 const toaster = document.querySelector(".toaster");
 const checkoutToast = document.querySelector(".checkout-toast");
 const menuContainer = document.getElementById("menu-container");
-const categories = document.querySelectorAll(".menu-category");
 const cartList = document.querySelector(".cart-list");
 const hamburger = document.querySelector(".hamburger");
 const mobileMenu = document.querySelector(".mobile-menu");
@@ -186,6 +181,7 @@ filterButtons.forEach(button => {
         button.classList.add("active");
 
         const filter = button.dataset.filter;
+        const categories = document.querySelectorAll(".menu-category");
 
 
         categories.forEach(category => {
@@ -616,8 +612,10 @@ signUpBtn.addEventListener("click", function (e) {
 
     e.preventDefault();
 
-
-
+    const username = document.getElementById("reg-user").value.trim();
+    const email = document.getElementById("email").value.trim();
+    const password = document.getElementById("reg-pass").value.trim();
+    const agree = document.getElementById("remember");
 
 
     if (username === "" || email === "" || password === "") {
