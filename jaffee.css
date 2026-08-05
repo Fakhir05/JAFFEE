@@ -192,6 +192,38 @@ li a:hover {
     font-size: 28px;
 }
 
+.up-icon {
+    position: fixed;
+    bottom: 25px;
+    left: 25px;
+    width: 55px;
+    height: 55px;
+    background: var(--text);
+    color: var(--text2);
+    border-radius: 34%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    box-shadow: 0 8px 20px var(--text);
+    z-index: 99;
+
+}
+
+.up-icon:hover {
+
+    transform: translateY(5px);
+    background: var(--hover);
+    /* transform: translateY(-4px) scale(1.08); */
+
+}
+
+.up-icon i {
+
+    font-size: 28px;
+
+}
+
 
 /* section 1 styling */
 
