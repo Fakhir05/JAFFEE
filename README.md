@@ -1,99 +1,241 @@
 # ☕ JAFFEE
 
-A modern, fully responsive front-end coffee shop website built using **HTML5**, **CSS3**, and **Vanilla JavaScript**. JAFFEE provides an interactive online ordering experience with a dynamic menu, shopping cart, authentication system, checkout process, order history management, and responsive design.
+A modern, fully responsive front-end coffee shop website built using **HTML5**, **CSS3**, and **Vanilla JavaScript**. JAFFEE delivers a complete coffee ordering experience with a dynamic menu, category filtering, shopping cart, authentication system, checkout process, order history management, policies popup, responsive navigation, and Local Storage support.
 
 ---
 
 # ✨ Features
 
-### 🏠 Home Page
-- Responsive navigation bar
-- Hero section with background image
-- Smooth scrolling to menu
-- Mobile-friendly hamburger menu
+## 🏠 Home Page
+- Fully responsive navigation bar
+- Coffee themed hero section
+- Smooth scrolling navigation
+- Order Now button
+- Responsive mobile hamburger menu
+- Scroll-to-top button
+- Responsive layout for all devices
 
-### ☕ Dynamic Coffee Menu
+---
+
+## ☕ Dynamic Coffee Menu
+
 - Menu generated dynamically using JavaScript
-- Four product categories:
+- Four coffee categories:
+
   - High Volume
   - Summer Favourites
   - Brews & Teas
   - Artisan Bakery
-- Product images, names, prices, and Add to Cart buttons
 
-### 🛒 Shopping Cart
+- Dynamic product cards
+- Product images
+- Product pricing
+- Add to Cart button
+- Responsive product grid
+
+---
+
+## 🍩 Category Filtering
+
+- Animated category filtering
+- Fade-in / Fade-out transitions
+- Only selected category is displayed
+- Other categories automatically hide
+- Active category highlighting
+- Menu hidden until category selection
+- Footer category shortcuts
+- Footer category automatically:
+  - Scrolls to menu
+  - Activates corresponding category button
+  - Displays selected category items
+
+---
+
+## 🛒 Shopping Cart
+
 - Slide-in cart panel
-- Add products dynamically
-- Increase/decrease quantity
-- Automatic item removal when quantity reaches zero
+- Dynamic cart rendering
 - Live cart counter
-- Real-time total price calculation
+- Add items
+- Increase quantity
+- Decrease quantity
+- Remove products automatically
+- Real-time total calculation
+- Responsive cart panel
 
-### 📜 Order History
-- Responsive order history popup
-- Automatically saves every successful order
-- Displays order number
-- Displays complete order summary
-- Displays order date & time
+---
+
+## 📜 Order History
+
+- Responsive history popup
+- Automatic order saving
+- Local Storage integration
+- Order number generation
+- Order date & time
+- Payment method display
+- Complete order summary
 - Repeat Order button
 - Clear History button
 - Empty history validation
-- Stores history using Local Storage
 - Preserves history after browser refresh
 
-### 🔐 Login & Registration
-- Animated popup modal
+---
+
+## 🔐 Login & Registration
+
+- Animated popup
 - Login form
 - Registration form
-- Form switching animation
-- Floating input labels
-- Client-side validation
+- Floating labels
+- Smooth form switching
+- Username validation
+- Email validation
+- Password validation
+- Terms & Conditions agreement validation
 - Toast notifications
+- Escape key support
+- Click outside to close popup
 
-### 💳 Checkout System
-- Customer information form
-- Shipping address form
+---
+
+## 💳 Checkout System
+
+- Customer information
+- Shipping address
 - Payment method selection
-- Credit Card payment
-- Cash on Delivery option
+
+Supports:
+
+- Credit Card
+- Cash On Delivery
+
+Features:
+
 - Dynamic order summary
-- Delivery charges calculation
-- Place Order functionality
+- Delivery charges
+- Card validation
+- Expiry validation
+- CVV validation
+- Postal code validation
 - Automatic order history saving
-- Success toast notification
-- Thank You confirmation message
+- Thank You notification
+- Automatic cart clearing after order
 
-### 🔔 Toast Notifications
-- Login success
-- Registration success
-- Validation messages
-- Empty cart notification
-- Successful order notification
-- History cleared notification
-- History empty notification
+---
 
-### 💾 Local Storage
-- Saves order history automatically
-- Loads previous orders after page refresh
-- Persistent browser storage
+## 📑 Policies System
 
-### 📱 Responsive Design
-- Mobile navigation
-- Responsive menu cards
-- Responsive shopping cart
-- Responsive checkout page
-- Responsive order history popup
-- Responsive footer
-- Optimized layouts for desktop, tablet, and mobile devices
+A complete responsive Policies popup has been added.
 
-### ✨ User Experience
+### Features
+
+- Opens from Desktop Navbar
+- Opens from Mobile Menu
+- Opens from Footer Site Links
+- Opens from Footer Useful Links
+
+Contains:
+
+### 📄 Terms & Conditions
+
+Includes:
+
+- Orders
+- Pricing
+- Payments
+- Delivery
+- Cancellation
+- Refund Policy
+- User Accounts
+- Intellectual Property
+- Policy Updates
+
+### 🔒 Privacy Policy
+
+Includes:
+
+- Data Collection
+- Information Usage
+- Payment Security
+- Cookies
+- Third Party Policy
+- Data Protection
+- User Rights
+- Policy Updates
+
+Additional Features
+
+- Animated switching
+- One-click tab navigation
+- Only one policy visible at a time
+- Responsive layout
+- Escape key support
+- Click outside to close
+
+---
+
+## 🔔 Toast Notifications
+
+Notifications include:
+
+- Login Successful
+- Registration Successful
+- Validation Errors
+- Empty Cart
+- Successful Order
+- Thank You Message
+- History Cleared
+- Empty History
+
+---
+
+## 💾 Local Storage
+
+Automatically stores:
+
+- Order History
+- Previous Orders
+
+Persists after browser refresh.
+
+---
+
+## 📱 Fully Responsive
+
+Optimized for
+
+- Desktop
+- Laptop
+- Tablet
+- Mobile
+
+Responsive Components
+
+- Navigation
+- Hero Section
+- Product Cards
+- Category Filter
+- Shopping Cart
+- Checkout
+- Login Popup
+- Order History
+- Policies Popup
+- Footer
+
+---
+
+## ✨ User Experience
+
 - Smooth scrolling
-- Sliding animations
-- Popup overlays
-- Toast notifications
+- Fade animations
+- Slide animations
 - Interactive buttons
-- Modern UI design
-- One-click Repeat Order functionality
+- Popup overlays
+- Modern UI
+- Responsive layouts
+- Dynamic rendering
+- Active category highlighting
+- Footer quick navigation
 
 ---
 
@@ -103,8 +245,9 @@ A modern, fully responsive front-end coffee shop website built using **HTML5**, 
 JAFFEE/
 │
 ├── index.html
-├── jaffee.css
-├── jaffee.js
+├── style.css
+├── script.js
+│
 ├── images/
 │   ├── Coffee Images
 │   ├── Logo
@@ -120,187 +263,208 @@ JAFFEE/
 
 # 📄 HTML Structure
 
-## 1. Document Setup
-- HTML5 Boilerplate
-- Meta Tags
-- CSS Linking
-- JavaScript Linking
-- Fonts
-- Icons
+## Header
 
-## 2. Header
 - Logo
-- Navigation Menu
-- Cart Icon
-- History Icon
-- Sign In Button
+- Navigation
+- Cart
+- Order History
+- Policies
+- Sign In
 - Hamburger Menu
 
-## 3. Hero Section
+---
+
+## Hero Section
+
 - Coffee Branding
 - Description
-- Order Now Button
+- Order Button
 
-## 4. Menu Section
-- Dynamic Product Categories
+---
+
+## Menu Section
+
+- Dynamic Categories
 - Product Cards
-- Add to Cart Buttons
+- Category Filter
+- Shopping Cart
 
-## 5. Shopping Cart
-- Cart Items
-- Quantity Controls
-- Total Price
-- Checkout Button
+---
 
-## 6. Coffee Information
+## Coffee Information
+
 - Coffee Video
 - Delivery Banner
 
-## 7. Footer
+---
+
+## Footer
+
+Contains
+
 - Site Links
-- Menu Links
-- Contact Details
+- Explore Menu
+- Useful Links
+- Contact Information
 - Opening Hours
 
-## 8. Login Popup
-- Login Form
-- Register Form
-- Toast Notification
+---
 
-## 9. Checkout Popup
-- Customer Information
-- Shipping Address
-- Payment Method
-- Order Summary
-- Place Order Button
+## Popups
 
-## 10. Order History Popup
-- Order Cards
-- Order Number
-- Order Summary
-- Order Date & Time
-- Repeat Order Button
-- Clear History Button
+- Login
+- Register
+- Checkout
+- Order History
+- Policies
 
 ---
 
 # 🎨 CSS Organization
 
 ## Global Styling
+
 - CSS Reset
 - Variables
 - Typography
 - Utility Classes
 
-## Layout Styling
-- Header
-- Hero Section
-- Menu Layout
-- Shopping Cart
-- Login Modal
-- Checkout Modal
-- Order History Modal
-- Footer
+---
 
 ## Components
-- Buttons
-- Forms
-- Cards
-- Cart Items
-- Order History Cards
-- Repeat Order Button
-- Clear History Button
+
+- Navigation
+- Hero
+- Menu
+- Product Cards
+- Shopping Cart
+- Checkout
+- Login
+- Order History
+- Policies Popup
+- Footer
 - Toast Notifications
 
-## Responsive Design
-- Desktop Layout
-- Tablet Layout
-- Mobile Layout
+---
+
+## Animations
+
+- Fade Category
+- Fade In
+- Fade Out
+- Popup Animation
+- Slide Cart
+- Login Animation
+- Policy Switching
+
+---
+
+## Responsive
+
+- Desktop
+- Tablet
+- Mobile
 
 ---
 
 # ⚙️ JavaScript Functionality
 
-## DOM Element Selection
-- Select required HTML elements
+## DOM Selection
+
+- Query selectors
+- Event listeners
+
+---
 
 ## Product Database
-- Store products using JavaScript objects
-- Product categories
+
+- JavaScript Objects
+- Arrays
+- Categories
+- Product IDs
 - Images
 - Prices
-- IDs
 
-## Dynamic Menu Rendering
-- Generate menu automatically
-- Create product cards
-- Insert into HTML
+---
+
+## Dynamic Rendering
+
+- Menu generation
+- Product cards
+- Shopping cart
+- Checkout
+- History
+
+---
+
+## Category Filtering
+
+- Active button
+- Hide inactive categories
+- Fade animation
+- Footer category shortcuts
+- Smooth scrolling
+
+---
 
 ## Shopping Cart
+
 - Add products
-- Update quantity
 - Remove products
-- Calculate totals
-- Update cart badge
+- Quantity controls
+- Cart totals
+- Cart badge
 
-## Mobile Navigation
-- Toggle hamburger menu
-- Change menu icon
-- Auto-close after selection
-
-## Smooth Scrolling
-- Scroll to menu section
+---
 
 ## Login System
+
+- Popup controls
+- Register
+- Login validation
+- Toasts
+
+---
+
+## Checkout
+
+- Validation
+- Payment switching
+- Card formatting
+- Expiry validation
+- CVV validation
+- Postal code validation
+
+---
+
+## Policies Popup
+
 - Open popup
 - Close popup
-- Escape key support
-- Click outside to close
+- Desktop Navbar support
+- Mobile Navbar support
+- Footer support
+- Terms & Conditions tab
+- Privacy Policy tab
+- Animated switching
 
-## Login/Register Switching
-- Switch forms
-- Animate titles
-- Dynamic popup height
-
-## Toast Notifications
-- Login success
-- Registration success
-- Validation messages
-- Empty cart notification
-- Order success notification
-- History cleared notification
-- History empty notification
-
-## Login Validation
-- Username validation
-- Password validation
-- Form reset
-
-## Registration Validation
-- Username validation
-- Email validation
-- Password validation
-- Terms & Conditions validation
-
-## Checkout System
-- Open checkout
-- Close checkout
-- Render order summary
-- Payment method switching
-- Form validation
-- Order placement
-- Save order history
-- Clear cart
-- Reset form
+---
 
 ## Order History
-- Save completed orders
-- Generate order numbers
-- Store date & time
-- Display previous orders
-- Repeat previous orders
-- Clear all order history
-- Load history from Local Storage
+
+- Save Orders
+- Repeat Orders
+- Clear History
+- Local Storage
+
+---
+
+## Local Storage
+
+Stores
+
+- Order History
 
 ---
 
@@ -331,37 +495,42 @@ JAFFEE/
 - Arrow Functions
 - Functions
 - Loops
-- forEach()
 - map()
+- forEach()
+- filter()
 - find()
 - flatMap()
-- filter()
 - JSON.stringify()
 - JSON.parse()
 - Local Storage
 - Date Object
-- Conditional Statements
 - Form Validation
-- Class Manipulation
+- Conditional Statements
 - Dynamic Rendering
+- CSS Class Manipulation
+- Animations
 
 ---
 
 # 🚀 How to Run
 
-Clone the repository:
+Clone the repository
 
 ```bash
 git clone https://github.com/Fakhir05/JAFFEE.git
 ```
 
-Open the project folder:
+Move into the project folder
 
 ```bash
 cd JAFFEE
 ```
 
-Finally, open **index.html** in your browser.
+Open the project
+
+```text
+index.html
+```
 
 No installation or build process is required.
 
@@ -369,78 +538,100 @@ No installation or build process is required.
 
 # 📸 Screenshots
 
-### 🏠 Home Page
+## 🏠 Home Page
 
-<p align="center">
-<img width="945" height="451" alt="image" src="https://github.com/user-attachments/assets/fc58bc0d-f742-4303-92b3-5d93f120b5db" />
-</p>
+<img width="941" height="447" alt="image" src="https://github.com/user-attachments/assets/b7bfebd0-b132-468b-863c-7a958af5ed09" />
 
-### ☕ Menu
 
-<p align="center">
-<img width="946" height="451" alt="image" src="https://github.com/user-attachments/assets/4d7f285e-db39-49aa-bf71-affce9e86bb4" />
-</p>
+---
 
-### 🛒 Shopping Cart
+## ☕ Menu
 
-<p align="center">
-<img width="945" height="449" alt="image" src="https://github.com/user-attachments/assets/b15dbe0d-ff09-4122-801c-0dce5b434e49" />
-</p>
+<img width="941" height="449" alt="image" src="https://github.com/user-attachments/assets/c9a29fdc-d555-47d7-b522-65a42d596795" />
 
-### 🔐 Login Popup
 
-<p align="center">
-<img width="950" height="450" alt="image" src="https://github.com/user-attachments/assets/03d3c342-af22-4828-b2ab-d8726b5748b5" />
-</p>
+---
 
-### 📝 Registration Popup
+## 🛒 Shopping Cart
 
-<p align="center">
-<img width="953" height="450" alt="image" src="https://github.com/user-attachments/assets/e23fb046-b9b9-4227-bcb2-cf32e2fb1fd8" />
-</p>
+<img width="941" height="449" alt="image" src="https://github.com/user-attachments/assets/7555f930-8c06-4090-abd1-15e31a245c55" />
 
-### 💳 Checkout Page
 
-<p align="center">
-<img width="943" height="449" alt="image" src="https://github.com/user-attachments/assets/396e414b-dc93-421e-8bbe-ada47173da48" />
-</p>
+---
 
-### 📜 Order History
+## 🔐 Login
 
-<p align="center">
-  <img width="944" height="452" alt="image" src="https://github.com/user-attachments/assets/48f2fda0-e738-4031-8eb2-b4bf390980bd" />
-</p>
+<img width="953" height="449" alt="image" src="https://github.com/user-attachments/assets/958f1595-b075-4101-9c2e-f4e4b239f816" />
 
-### 📱 Mobile View
 
-<p align="center">
-<img width="299" height="450" alt="image" src="https://github.com/user-attachments/assets/4bae906b-bd8a-4802-af80-fea988459a48" />
-<img width="296" height="449" alt="image" src="https://github.com/user-attachments/assets/2ee930ee-887d-42fe-9c8b-25e50188cd42" />
-<img width="296" height="451" alt="image" src="https://github.com/user-attachments/assets/78e5f401-6143-4260-8f26-6dc94a90b8cc" />
-<img width="298" height="449" alt="image" src="https://github.com/user-attachments/assets/2538522b-7d47-4250-a6d4-15e19468902a" />
-<img width="298" height="452" alt="image" src="https://github.com/user-attachments/assets/69873d78-11d3-4901-9481-e722a4d7de1b" />
-<img width="297" height="446" alt="image" src="https://github.com/user-attachments/assets/b9aabc45-3d52-4a33-b5c5-21c2a871ff47" />
-</p>
+---
+
+## 📝 Registration
+
+<img width="946" height="448" alt="image" src="https://github.com/user-attachments/assets/a51279bc-d14c-4145-86d4-9513a43321ff" />
+
+
+---
+
+## 💳 Checkout
+
+<img width="941" height="450" alt="image" src="https://github.com/user-attachments/assets/eb1a8a3c-9f84-4e27-8387-985723fcc460" />
+
+
+---
+
+## 📜 Order History
+
+<img width="943" height="449" alt="image" src="https://github.com/user-attachments/assets/fcf857b4-755e-42ad-b3fa-75010eaf6a4e" />
+
+
+---
+
+## 📑 Policies Popup
+
+<img width="943" height="449" alt="image" src="https://github.com/user-attachments/assets/0355cbd4-1a8b-46fd-8349-18e5bc788305" />
+
+
+---
+
+## 📱 Mobile View
+
+<img width="295" height="452" alt="image" src="https://github.com/user-attachments/assets/7da21562-1513-4daf-8779-a8f22fe70d63" /><img width="298" height="444" alt="image" src="https://github.com/user-attachments/assets/8f42f415-ee00-4d82-afdf-88d400379ead" />
+<img width="297" height="450" alt="image" src="https://github.com/user-attachments/assets/c9726b77-863c-4a6a-a8c3-ec486f553b84" />
+<img width="295" height="448" alt="image" src="https://github.com/user-attachments/assets/0773ddc1-3060-439e-b3f2-9dd98e761f4a" /><img width="295" height="448" alt="image" src="https://github.com/user-attachments/assets/5fb3b135-0f2c-4aa0-bafe-88c4a65a2446" /><img width="298" height="448" alt="image" src="https://github.com/user-attachments/assets/a81d7904-ac3b-4d5b-bd73-bb9d2777ad32" />
+
+
+
+
+
 
 ---
 
 # ⭐ Future Improvements
 
-- User authentication with backend
-- Online payment gateway integration
-- Order tracking
-- Customer profile
+- Backend Authentication
+- Database Integration
+- Payment Gateway Integration
+- User Accounts
+- Product Search
 - Wishlist
-- Product search & filtering
-- Dark mode
-- Admin dashboard
-- Backend database integration
+- Favorite Items
+- Order Tracking
+- Admin Dashboard
+- Inventory Management
+- Coupon System
+- Dark Mode
+- Multi-language Support
+- Email Notifications
+- Progressive Web App (PWA)
 
 ---
 
 # 👨‍💻 Author
 
-**Fakhir Asghar**
+## **Fakhir Asghar**
 
-GitHub: https://github.com/Fakhir05
+### GitHub
+
+**https://github.com/Fakhir05**
 
