@@ -12,9 +12,14 @@ const loginLink = document.getElementById("loginLink");
 const registerLink = document.getElementById("registerLink");
 const signInBtn = document.getElementById("SignInBtn");
 const signUpBtn = document.getElementById("SignUpBtn");
+const username = document.getElementById("reg-user").value.trim();
+const email = document.getElementById("email").value.trim();
+const password = document.getElementById("reg-pass").value.trim();
+const agree = document.getElementById("remember");
 const toaster = document.querySelector(".toaster");
 const checkoutToast = document.querySelector(".checkout-toast");
 const menuContainer = document.getElementById("menu-container");
+const categories = document.querySelectorAll(".menu-category");
 const cartList = document.querySelector(".cart-list");
 const hamburger = document.querySelector(".hamburger");
 const mobileMenu = document.querySelector(".mobile-menu");
@@ -27,8 +32,12 @@ const closeCheckout = document.querySelector(".close-checkout");
 const checkoutCartItems = document.getElementById("checkout-cart-items");
 const checkoutSubtotal = document.getElementById("checkout-subtotal");
 const checkoutTotal = document.getElementById("checkout-total");
+const zip = document.getElementById("zip");
 const paymentMethods = document.querySelectorAll('input[name="payment"]');
 const creditCardInfo = document.getElementById("credit-card-info");
+const cardNumber = document.getElementById("card-number");
+const expiry = document.getElementById("card-expiry");
+const cvv = document.getElementById("card-cvv");
 const codInfo = document.getElementById("cod-info");
 const checkoutForm = document.getElementById("checkout-form");
 const historyIcon = document.querySelector(".history-icon");
@@ -46,6 +55,7 @@ const privacyContent = document.querySelector(".privacy-content");
 const footerTerms = document.querySelector(".footer-terms");
 const footerPrivacy = document.querySelector(".footer-privacy");
 const filterButtons = document.querySelectorAll(".filter-btn");
+const footerCategoryBtns = document.querySelectorAll(".footer-category");
 let registeredUser = "";
 let registeredPass = "";
 
@@ -177,7 +187,6 @@ filterButtons.forEach(button => {
 
         const filter = button.dataset.filter;
 
-        const categories = document.querySelectorAll(".menu-category");
 
         categories.forEach(category => {
 
@@ -607,13 +616,7 @@ signUpBtn.addEventListener("click", function (e) {
 
     e.preventDefault();
 
-    const username = document.getElementById("reg-user").value.trim();
 
-    const email = document.getElementById("email").value.trim();
-
-    const password = document.getElementById("reg-pass").value.trim();
-
-    const agree = document.getElementById("remember");
 
 
 
@@ -886,8 +889,6 @@ clearHistoryBtn.addEventListener("click", () => {
 // zip code 
 
 
-const zip = document.getElementById("zip");
-
 zip.addEventListener("input", () => {
     zip.value = zip.value.replace(/\D/g, "");
 });
@@ -924,8 +925,6 @@ paymentMethods.forEach(method => {
 // card numbers 
 
 
-const cardNumber = document.getElementById("card-number");
-
 cardNumber.addEventListener("input", () => {
     let value = cardNumber.value.replace(/\D/g, "");
     value = value.substring(0, 16);
@@ -936,8 +935,6 @@ cardNumber.addEventListener("input", () => {
 
 // expiry date
 
-
-const expiry = document.getElementById("card-expiry");
 
 expiry.addEventListener("input", () => {
     let value = expiry.value.replace(/\D/g, "");
@@ -951,8 +948,6 @@ expiry.addEventListener("input", () => {
 
 // CVV
 
-
-const cvv = document.getElementById("card-cvv");
 
 cvv.addEventListener("input", () => {
     cvv.value = cvv.value.replace(/\D/g, "");
@@ -1181,4 +1176,58 @@ footerPrivacy.addEventListener("click", (e) => {
     e.preventDefault();
     openPolicies();
     showPrivacy();
+});
+
+
+// FOOTER CATEGORY MENU BUTTONS
+
+
+footerCategoryBtns.forEach(btn => {
+
+    btn.addEventListener("click", function (e) {
+
+        e.preventDefault();
+
+        // Scroll to menu
+        menu.scrollIntoView({
+            behavior: "smooth"
+        });
+
+        const selectedCategory = this.dataset.filter;
+
+        // Remove active class
+        filterButtons.forEach(button => {
+            button.classList.remove("active");
+        });
+
+        // Activate matching top button
+        filterButtons.forEach(button => {
+
+            if (button.dataset.filter === selectedCategory) {
+
+                button.classList.add("active");
+
+            }
+
+        });
+
+        const categories = document.querySelectorAll(".menu-category");
+
+        categories.forEach(category => {
+
+            if (category.dataset.category === selectedCategory) {
+
+                category.classList.remove("hide-category");
+                category.style.animation = "fadeCategory .4s ease";
+
+            } else {
+
+                category.classList.add("hide-category");
+
+            }
+
+        });
+
+    });
+
 });
