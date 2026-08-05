@@ -45,6 +45,7 @@ const termsContent = document.querySelector(".terms-content");
 const privacyContent = document.querySelector(".privacy-content");
 const footerTerms = document.querySelector(".footer-terms");
 const footerPrivacy = document.querySelector(".footer-privacy");
+const filterButtons = document.querySelectorAll(".filter-btn");
 let registeredUser = "";
 let registeredPass = "";
 
@@ -116,13 +117,13 @@ const products = [
 products.forEach(section => {
 
     menuContainer.innerHTML += `
-        <p class="menu1-head" id="${section.category.toLowerCase().replace(/\s+/g, '-')}">
-    ${section.category}
-</p>
-&nbsp;
+
+    <div class="menu-category"
+    data-category="${section.category.toLowerCase().replace(/\s+/g, '-')}">
+
         <div class="menu1 text-center gap-2">
 
-        ${section.items.map(item => `
+            ${section.items.map(item => `
 
                 <div class="item11">
 
@@ -140,13 +141,85 @@ products.forEach(section => {
 
                 </div>
 
-            `).join("")
-        }
+            `).join("")}
 
         </div>
 
-        <br>
+    </div>
+
+    <br>
+
     `;
+
+});
+
+
+// Hide all menu categories by default
+
+
+document.querySelectorAll(".menu-category").forEach(category => {
+    category.classList.add("hide-category");
+});
+
+
+// SMOOTH MENU CATEGORY FILTER
+
+
+filterButtons.forEach(button => {
+
+    button.addEventListener("click", () => {
+
+        filterButtons.forEach(btn => {
+            btn.classList.remove("active");
+        });
+
+        button.classList.add("active");
+
+        const filter = button.dataset.filter;
+
+        const categories = document.querySelectorAll(".menu-category");
+
+        categories.forEach(category => {
+
+            category.style.animation = "fadeOut .3s ease forwards";
+
+        });
+
+        setTimeout(() => {
+
+            categories.forEach(category => {
+
+                if (filter === "all") {
+
+                    category.classList.add("hide-category");
+
+                }
+
+                else if (category.dataset.category === filter) {
+
+                    category.classList.remove("hide-category");
+
+                }
+
+                else {
+
+                    category.classList.add("hide-category");
+
+                }
+
+            });
+
+            document.querySelectorAll(".menu-category:not(.hide-category)")
+                .forEach(category => {
+
+                    category.style.animation = "fadeCategory .4s ease";
+
+                });
+
+        }, 300);
+
+    });
+
 });
 
 
