@@ -596,9 +596,13 @@ No installation or build process is required.
 
 ## 📱 Mobile View
 <p>
-<img width="295" height="452" alt="image" src="https://github.com/user-attachments/assets/7da21562-1513-4daf-8779-a8f22fe70d63" /><img width="298" height="444" alt="image" src="https://github.com/user-attachments/assets/8f42f415-ee00-4d82-afdf-88d400379ead" />
+<img width="295" height="452" alt="image" src="https://github.com/user-attachments/assets/7da21562-1513-4daf-8779-a8f22fe70d63" />
+<img width="298" height="444" alt="image" src="https://github.com/user-attachments/assets/8f42f415-ee00-4d82-afdf-88d400379ead" />
 <img width="297" height="450" alt="image" src="https://github.com/user-attachments/assets/c9726b77-863c-4a6a-a8c3-ec486f553b84" />
-<img width="295" height="448" alt="image" src="https://github.com/user-attachments/assets/0773ddc1-3060-439e-b3f2-9dd98e761f4a" /><img width="295" height="448" alt="image" src="https://github.com/user-attachments/assets/5fb3b135-0f2c-4aa0-bafe-88c4a65a2446" /><img width="298" height="448" alt="image" src="https://github.com/user-attachments/assets/a81d7904-ac3b-4d5b-bd73-bb9d2777ad32" /></p>
+<img width="295" height="448" alt="image" src="https://github.com/user-attachments/assets/0773ddc1-3060-439e-b3f2-9dd98e761f4a" />
+<img width="295" height="448" alt="image" src="https://github.com/user-attachments/assets/5fb3b135-0f2c-4aa0-bafe-88c4a65a2446" />
+<img width="298" height="448" alt="image" src="https://github.com/user-attachments/assets/a81d7904-ac3b-4d5b-bd73-bb9d2777ad32" />
+</p>
 
 
 
