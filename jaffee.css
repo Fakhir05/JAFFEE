@@ -684,7 +684,7 @@ li a:hover {
 }
 
 .input-field:focus {
-    border-color: var(--button);
+    border-color: var(--text2);
 }
 
 .label {
@@ -974,7 +974,7 @@ li a:hover {
 
 .form-group input:focus {
 
-    border-color: var(--button);
+    border-color: var(--text2);
 
 }
 
