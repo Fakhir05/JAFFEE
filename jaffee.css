@@ -702,7 +702,10 @@ li a:hover {
 .input-field:focus~.label,.input-field:valid~.label {
     top: 0;
     font-size: 12px;
-    color: var(--button);
+    color: var(--text2);
+    border-radius: 50px;
+    border: 1px solid #d9d4ce;
+    background: white;
 }
 
 .icon {
