@@ -257,6 +257,8 @@ document.addEventListener("click", (e) => {
 
     renderCart();
 
+    showAddCartToast("Item added to cart!");
+
 });
 
 function renderCart() {
@@ -551,17 +553,18 @@ function showToast(message) {
 }
 
 
-function showCheckoutToast(message) {
+let addCartToastTimer;
 
-    checkoutToast.textContent = message;
-
-    checkoutToast.classList.add("show");
-
+function showAddCartToast(message) {
+    checkoutToast.classList.remove("show");
+    clearTimeout(addCartToastTimer);
     setTimeout(() => {
-
-        checkoutToast.classList.remove("show");
-
-    }, 3000);
+        checkoutToast.textContent = message;
+        checkoutToast.classList.add("show");
+        addCartToastTimer = setTimeout(() => {
+            checkoutToast.classList.remove("show");
+        }, 3000);
+    }, 80);
 
 }
 
