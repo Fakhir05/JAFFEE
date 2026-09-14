@@ -1,3 +1,8 @@
+
+
+// DOM ELEMENTS
+
+
 const cartIcon = document.querySelector('.cart-icon');
 const cartTab = document.querySelector('.cart');
 const closeBtn = document.querySelector('.close-btn');
