@@ -71,7 +71,7 @@ closeBtn.addEventListener('click', (e) => {
 });
 
 
-// prducts list 
+// products list 
 
 
 const products = [
