@@ -553,6 +553,23 @@ function showToast(message) {
 }
 
 
+function showCheckoutToast(message) {
+
+    if (!checkoutToast) return;
+
+    checkoutToast.textContent = message;
+
+    checkoutToast.classList.add("show");
+
+    setTimeout(() => {
+
+        checkoutToast.classList.remove("show");
+
+    }, 3000);
+
+}
+
+
 let addCartToastTimer;
 
 function showAddCartToast(message) {
